@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Tab from "./Tab";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      picArr: [
+        "./image/1.jpeg",
+        "./image/2.jpeg",
+        "./image/3.jpeg",
+        "./image/4.jpeg"
+      ]
+    };
+  }
+  render() {
+    return (
+      <div>
+        <Tab
+          json={{
+            picArr: this.state.picArr,
+            timer: 2000,
+            width: 640,
+            height: 360
+          }}
+        />
+      </div>
+    );
+  }
 }
-
-export default App;
